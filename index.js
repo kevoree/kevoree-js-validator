@@ -5,7 +5,7 @@ var ModelValidationError = require('./lib/ModelValidationError');
 
 function testAttribute(instance, dictionary, attrType) {
   if (dictionary) {
-    if (dictionary.generated_KMF_ID === '0') {
+    if (dictionary.generated_KMF_ID === '0' || dictionary.generated_KMF_ID === 0) {
       var attr = dictionary.findValuesByID(attrType.name);
       if (attr) {
         if (!attrType.optional) {
