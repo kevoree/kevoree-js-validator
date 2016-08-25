@@ -1,0 +1,56 @@
+{
+  "class": "root:org.kevoree.ContainerRoot@0",
+  "generated_KMF_ID": "0",
+  "nodes": [{
+    "class": "org.kevoree.ContainerNode@node",
+    "name": "node",
+    "started": "true",
+    "typeDefinition": [
+      "packages[kevoree]/typeDefinitions[name=Node,version=1]"
+    ],
+    "host": [],
+    "hosts": [],
+    "dictionary": [{
+      "class": "org.kevoree.Dictionary@0",
+      "generated_KMF_ID": "0",
+      "values": [{
+        "class": "org.kevoree.Value@attr",
+        "name": "attr",
+        "value": ""
+      }]
+    }],
+    "fragmentDictionary": [],
+    "metaData": []
+  }],
+  "repositories": [],
+  "hubs": [],
+  "mBindings": [],
+  "groups": [],
+  "packages": [{
+    "class": "org.kevoree.Package@kevoree",
+    "name": "kevoree",
+    "packages": [],
+    "typeDefinitions": [{
+      "class": "org.kevoree.NodeType@Node",
+      "name": "Node",
+      "version": "1",
+      "deployUnits": [],
+      "superTypes": [],
+      "dictionaryType": [{
+        "class": "org.kevoree.DictionaryType@0",
+        "generated_KMF_ID": "0",
+        "attributes": [{
+          "class": "org.kevoree.DictionaryAttribute@attr",
+          "fragmentDependant": "false",
+          "optional": "true",
+          "name": "attr",
+          "state": "false",
+          "datatype": "STRING",
+          "defaultValue": "",
+          "genericTypes": []
+        }]
+      }]
+    }],
+    "deployUnits": []
+  }]
+}
