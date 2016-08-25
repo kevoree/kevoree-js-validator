@@ -1,10 +1,11 @@
 {
   "name": "kevoree-validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kevoree model validator",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "browserify -x kevoree-library -r ./index.js:kevoree-validator index.js -o dist/kevoree-validator.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "kevoree-library": "^5.0.10-alpha"
   },
   "devDependencies": {
+    "browserify": "^13.1.0",
     "expect": "^1.20.2",
     "mocha": "^3.0.2"
   }
