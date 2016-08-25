@@ -805,27 +805,23 @@ var ModelValidationError = require('./lib/ModelValidationError');
 
 function testAttribute(instance, dictionary, attrType) {
   if (dictionary) {
-    if (dictionary.generated_KMF_ID === '0' || dictionary.generated_KMF_ID === 0) {
-      var attr = dictionary.findValuesByID(attrType.name);
-      if (attr) {
-        if (!attrType.optional) {
-          if (!attr.value || attr.value.length === 0) {
-            if (attrType.fragmentDependant) {
-              throw new ModelValidationError('Missing value for non-optional fragmented attribute "'+attrType.name+'" in fragment "'+dictionary.name+'" for instance "' + instance.path() + '"');
-            } else {
-              throw new ModelValidationError('Missing value for non-optional attribute "'+attrType.name+'" for instance "' + instance.path() + '"');
-            }
+    var attr = dictionary.findValuesByID(attrType.name);
+    if (attr) {
+      if (!attrType.optional) {
+        if (!attr.value || attr.value.length === 0) {
+          if (attrType.fragmentDependant) {
+            throw new ModelValidationError('Missing value for non-optional fragmented attribute "'+attrType.name+'" in fragment "'+dictionary.name+'" for instance "' + instance.path() + '"');
+          } else {
+            throw new ModelValidationError('Missing value for non-optional attribute "'+attrType.name+'" for instance "' + instance.path() + '"');
           }
-        }
-      } else {
-        if (attrType.fragmentDependant) {
-          throw new ModelValidationError('Missing fragmented attribute "'+attrType.name+'" in fragment "'+dictionary.name+'" for instance "' + instance.path() + '"');
-        } else {
-          throw new ModelValidationError('Missing attribute "'+attrType.name+'" for instance "' + instance.path() + '"');
         }
       }
     } else {
-      throw new ModelValidationError('Dictionary KMF_ID must be set to "0" to prevent diff errors in instance "' + instance.path() + '"');
+      if (attrType.fragmentDependant) {
+        throw new ModelValidationError('Missing fragmented attribute "'+attrType.name+'" in fragment "'+dictionary.name+'" for instance "' + instance.path() + '"');
+      } else {
+        throw new ModelValidationError('Missing attribute "'+attrType.name+'" for instance "' + instance.path() + '"');
+      }
     }
   } else {
     throw new ModelValidationError('Missing dictionary for instance "' + instance.path() + '"');
@@ -836,6 +832,15 @@ module.exports = function (model) {
   var visitor = new kevoree.org.kevoree.modeling.api.util.ModelVisitor();
   visitor.visit = function (element/*, refInParent, parent*/) {
     switch (element.metaClassName()) {
+      case 'org.kevoree.Dictionary':
+      case 'org.kevoree.FragmentDictionary':
+      case 'org.kevoree.DictionaryType':
+        // dictionary
+        if (element.generated_KMF_ID !== '0' && element.generated_KMF_ID !== 0) {
+          throw new ModelValidationError('Dictionary KMF_ID must be set to "0" to prevent diff errors in instance "' + element.eContainer().path() + '"');
+        }
+        break;
+
       case 'org.kevoree.ContainerNode':
       case 'org.kevoree.Group':
       case 'org.kevoree.Channel':
