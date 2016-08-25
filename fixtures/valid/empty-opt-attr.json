@@ -34,7 +34,10 @@
       "class": "org.kevoree.NodeType@Node",
       "name": "Node",
       "version": "1",
-      "deployUnits": [],
+      "deployUnits": [
+        "/packages[kevoree]/deployUnits[hashcode=0123,name=java-node,version=1.2.3]",
+        "/packages[kevoree]/deployUnits[hashcode=1234,name=js-node,version=1.2.3]"
+      ],
       "superTypes": [],
       "dictionaryType": [{
         "class": "org.kevoree.DictionaryType@0",
@@ -51,6 +54,30 @@
         }]
       }]
     }],
-    "deployUnits": []
+    "deployUnits": [{
+      "class": "org.kevoree.DeployUnit@hashcode=0123,name=java-node,version=1.2.3",
+      "hashcode": "0123",
+      "name": "java-node",
+      "version": "1.2.3",
+      "url": "",
+      "requiredLibs": [],
+      "filters": [{
+        "class": "org.kevoree.Value@platform",
+        "name": "platform",
+        "value": "java"
+      }]
+    }, {
+      "class": "org.kevoree.DeployUnit@hashcode=1234,name=js-node,version=1.2.3",
+      "hashcode": "1234",
+      "name": "js-node",
+      "version": "1.2.3",
+      "url": "",
+      "requiredLibs": [],
+      "filters": [{
+        "class": "org.kevoree.Value@platform",
+        "name": "platform",
+        "value": "js"
+      }]
+    }]
   }]
 }
