@@ -833,7 +833,6 @@ module.exports = function (model) {
   visitor.visit = function (element/*, refInParent, parent*/) {
     switch (element.metaClassName()) {
       case 'org.kevoree.Dictionary':
-      case 'org.kevoree.FragmentDictionary':
       case 'org.kevoree.DictionaryType':
         // dictionary
         if (element.generated_KMF_ID !== '0' && element.generated_KMF_ID !== 0) {
@@ -883,5 +882,7 @@ module.exports = function (model) {
 
   model.visit(visitor, true, true, true);
 };
+
+module.exports.ModelValidationError = ModelValidationError;
 
 },{"./lib/ModelValidationError":1,"kevoree-library":"kevoree-library"}]},{},["kevoree-validator"]);
