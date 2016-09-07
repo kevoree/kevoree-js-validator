@@ -48,14 +48,14 @@ describe('modelValidator(...)', function () {
       doExpect(model).toThrow(/Missing dictionary/);
     });
 
-    it('a dictionary type has a KMF_ID !== 0', function () {
+    it('a dictionary type has a KMF_ID !== 0.0', function () {
       const model = JSON.stringify(require('../fixtures/invalid/wrong-dic-type-id.json'));
-      doExpect(model).toThrow(/Dictionary KMF_ID must be set to "0"/);
+      doExpect(model).toThrow(/Dictionary KMF_ID must be set to 0.0/);
     });
 
-    it('a dictionary has a KMF_ID !== 0', function () {
+    it('a dictionary has a KMF_ID !== 0.0', function () {
       const model = JSON.stringify(require('../fixtures/invalid/wrong-dic-id.json'));
-      doExpect(model).toThrow(/Dictionary KMF_ID must be set to "0"/);
+      doExpect(model).toThrow(/Dictionary KMF_ID must be set to 0.0/);
     });
 
     it('an optional attribute is missing in dictionary', function () {

@@ -1,6 +1,6 @@
 {
-  "class": "root:org.kevoree.ContainerRoot@0",
-  "generated_KMF_ID": "0",
+  "class": "root:org.kevoree.ContainerRoot@0.0",
+  "generated_KMF_ID": "0.0",
   "nodes": [{
     "class": "org.kevoree.ContainerNode@node",
     "name": "node",
@@ -11,8 +11,8 @@
     "host": [],
     "hosts": [],
     "dictionary": [{
-      "class": "org.kevoree.Dictionary@0",
-      "generated_KMF_ID": "0",
+      "class": "org.kevoree.Dictionary@0.0",
+      "generated_KMF_ID": "0.0",
       "values": []
     }],
     "fragmentDictionary": [],
@@ -36,8 +36,8 @@
       ],
       "superTypes": [],
       "dictionaryType": [{
-        "class": "org.kevoree.DictionaryType@0",
-        "generated_KMF_ID": "0",
+        "class": "org.kevoree.DictionaryType@0.0",
+        "generated_KMF_ID": "0.0",
         "attributes": [{
           "class": "org.kevoree.DictionaryAttribute@attr",
           "fragmentDependant": "false",

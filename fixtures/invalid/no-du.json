@@ -1,6 +1,6 @@
 {
-  "class": "root:org.kevoree.ContainerRoot@0",
-  "generated_KMF_ID": "0",
+  "class": "root:org.kevoree.ContainerRoot@0.0",
+  "generated_KMF_ID": "0.0",
   "nodes": [{
     "class": "org.kevoree.ContainerNode@node",
     "name": "node",

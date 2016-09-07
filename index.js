@@ -35,8 +35,8 @@ module.exports = function (model) {
       case 'org.kevoree.Dictionary':
       case 'org.kevoree.DictionaryType':
         // dictionary
-        if (element.generated_KMF_ID !== '0' && element.generated_KMF_ID !== 0) {
-          throw new ModelValidationError('Dictionary KMF_ID must be set to "0" to prevent diff errors in instance "' + element.eContainer().path() + '"');
+        if (element.generated_KMF_ID !== '0.0' && element.generated_KMF_ID !== 0.0) {
+          throw new ModelValidationError('Dictionary KMF_ID must be set to 0.0 to prevent diff errors in instance "' + element.eContainer().path() + '"');
         }
         break;
 
