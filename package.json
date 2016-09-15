@@ -1,6 +1,6 @@
 {
   "name": "kevoree-validator",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Kevoree model validator",
   "main": "index.js",
   "scripts": {
