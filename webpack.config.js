@@ -8,7 +8,8 @@ module.exports = {
   entry: path.resolve(pkg.main),
   output: {
     filename: path.join('dist', pkg.name + '.js'),
-    library: 'KevoreeValidator'
+    library: 'KevoreeValidator',
+    libraryTarget: 'umd'
   },
   externals: {
     'kevoree-library': 'KevoreeLibrary'
