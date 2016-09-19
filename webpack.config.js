@@ -7,7 +7,7 @@ var pkg = require('./package.json');
 module.exports = {
   entry: path.resolve(pkg.main),
   output: {
-    filename: path.join('dist', pkg.name + '.js'),
+    filename: path.join('browser', pkg.name + '.js'),
     library: 'KevoreeValidator',
     libraryTarget: 'umd'
   },
