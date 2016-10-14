@@ -28,6 +28,27 @@ function testAttribute(instance, dictionary, attrType) {
   }
 }
 
+function testPlatforms(tdef) {
+  var platforms = [];
+  tdef.deployUnits.array.forEach(function (du) {
+    du.filters.array.forEach(function (filter) {
+      if (filter.name === 'platform') {
+        var idx = platforms.indexOf(filter.value);
+        if (idx === -1) {
+          platforms.push(filter.value);
+        }
+      }
+    });
+  });
+
+  platforms.forEach(function (platform) {
+    var metas = tdef.select('deployUnits[]/filters[name=platform,value='+platform+']').array;
+    if (metas.length !== 1) {
+      throw new ModelValidationError('TypeDefinition ' + tdef.name + '/' + tdef.version + ' has ' + metas.length + ' DeployUnits for the \''+platform+'\' platform (must be 1 per platform)');
+    }
+  });
+}
+
 module.exports = function (model) {
   var visitor = new kevoree.org.kevoree.modeling.api.util.ModelVisitor();
   visitor.visit = function (element/*, refInParent, parent*/) {
@@ -76,6 +97,7 @@ module.exports = function (model) {
         if (element.deployUnits.size() === 0) {
           throw new ModelValidationError('No DeployUnits defined for type "'+ element.path() +'"');
         }
+        testPlatforms(element);
         break;
     }
   };
