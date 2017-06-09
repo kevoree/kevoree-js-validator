@@ -95,7 +95,10 @@ module.exports = function (model) {
       case 'org.kevoree.ComponentType':
         // type definition
         if (element.deployUnits.size() === 0) {
-          throw new ModelValidationError('No DeployUnits defined for type "'+ element.path() +'"', element.path());
+          var metaData = element.findMetaDataByID('virtual');
+          if (!metaData || metaData.value !== 'true') {
+            throw new ModelValidationError('No DeployUnits defined for type "'+ element.path() +'"', element.path());
+          }
         }
         testPlatforms(element);
         break;

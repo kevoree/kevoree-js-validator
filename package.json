@@ -1,12 +1,12 @@
 {
   "name": "kevoree-validator",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Kevoree model validator",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "prepublish": "npm run build",
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack -p"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,6 @@
   "devDependencies": {
     "expect": "^1.20.2",
     "mocha": "^3.0.2",
-    "webpack": "^1.13.2"
+    "webpack": "^2.6.1"
   }
 }

@@ -30,6 +30,11 @@ describe('modelValidator(...)', function () {
       const model = JSON.stringify(require('../fixtures/valid/missing-dic-type.json'));
       doExpect(model).toNotThrow();
     });
+
+    it('a virtual type has 0 deployUnit', function () {
+      const model = JSON.stringify(require('../fixtures/valid/virtual-type.json'));
+      doExpect(model).toNotThrow();
+    });
   });
 
   context('must throw when', function () {
